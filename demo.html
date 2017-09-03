@@ -34,9 +34,9 @@
       <div class="col">
         <button id="sendBtn" type="button" class="btn btn-primary btn-lg btn-block">Send to Google Form</button>
       </div>
-      <div class="col">
+      <!-- <div class="col">
         <button id="loadSheet" type="button" class="btn  btn-success btn-lg btn-block" target="_blank">load Google Sheet</button>
-      </div>
+      </div> -->
     </div>
 
     <div class="row" id="googleSheet">
@@ -52,6 +52,9 @@
       /// GET GOOGLE FORM URL ///
       var formURL = "https://docs.google.com/forms/d/15Ts8au3uporAAOmcPJAcHTpK91t2kIAjej0djfHfxE4/formResponse?"
 
+      /// initialize google sheet iframe ///
+      document.getElementById("googleSheet").innerHTML = '<iframe id="googleSheet" style="height: 500px; width:100%; margin-top: 20px" src="https://docs.google.com/spreadsheets/d/1bhy-fVlIZevvADgwvZUjJAnX4qkOTIRy5uvUKQ0sZsg"></iframe>'
+
       /// CLICK SUBMIT BUTTON ///
       sendBtn.onclick = function() {
         /// CREATE data object of key:value pairs ///
@@ -64,11 +67,6 @@
         postToGoogle(formURL, data);
 
         /// RELOAD GOOGLE SHEET ///
-        loadSheet.click();
-
-      }
-
-      loadSheet.onclick = function(){
         document.getElementById("googleSheet").innerHTML = '<iframe id="googleSheet" style="height: 500px; width:100%; margin-top: 20px" src="https://docs.google.com/spreadsheets/d/1bhy-fVlIZevvADgwvZUjJAnX4qkOTIRy5uvUKQ0sZsg"></iframe>'
       }
 
@@ -89,7 +87,6 @@
         });
       }
 
-       document.getElementById("googleSheet").innerHTML = '<iframe id="googleSheet" style="height: 500px; width:100%; margin-top: 20px" src="https://docs.google.com/spreadsheets/d/1bhy-fVlIZevvADgwvZUjJAnX4qkOTIRy5uvUKQ0sZsg"></iframe>'
      });
     </script>
 </body>
