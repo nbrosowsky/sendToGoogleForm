@@ -49,15 +49,21 @@
     <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
+      /// GET GOOGLE FORM URL ///
       var formURL = "https://docs.google.com/forms/d/15Ts8au3uporAAOmcPJAcHTpK91t2kIAjej0djfHfxE4/formResponse?"
 
+      /// CLICK SUBMIT BUTTON ///
       sendBtn.onclick = function() {
+        /// CREATE data object of key:value pairs ///
         var data = {
           "entry.779126364": document.getElementById("entry.779126364").value,
           "entry.1039583708": document.getElementById("entry.1039583708").value,
           "entry.1039271422": document.getElementById("entry.1039271422").value
         }
+        /// POST TO GOOGLE FORM ///
         postToGoogle(formURL, data);
+
+        /// RELOAD GOOGLE SHEET ///
         loadSheet.click();
 
       }
